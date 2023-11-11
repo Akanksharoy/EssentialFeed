@@ -90,6 +90,19 @@ class RemoteFeedLoaderTests: XCTestCase {
         let sut = RemoteFeedLoader(url: url, client: client)
         return (sut, client)
     }
+    
+    private func makeItem(id:UUID, description:String? = nil, location:String? = nil, imageURL:URL) -> (model: FeedItem, json:[String:Any]){
+        let item = FeedItem(id: id, description: description, location: location, imageURL: imageURL)
+        let json = [
+            "id":item.id.uuidString,
+            "description":item.description,
+            "location":item.location,
+            "image":item.imageURL.absoluteString
+        ].reduce(into: [String: Any]()) { (acc, e) in
+            if let value = e.value { acc[e.key] = value }
+        }
+        return (item,json)
+    }
     private func expect(_ sut:RemoteFeedLoader, toCompletewith result: RemoteFeedLoader.Result, when action: ()->Void, file:StaticString = #file, line:UInt = #line ){
         var capturedResults = [RemoteFeedLoader.Result]()
         sut.load { capturedResults.append($0) }
