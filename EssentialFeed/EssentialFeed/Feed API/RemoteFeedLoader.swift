@@ -25,6 +25,8 @@ public final class RemoteFeedLoader: FeedLoader {
     
     public func load(completion: @escaping (LoadFeedResult) -> Void) {
         client.get(from: url) { [weak self] result in
+            print("**********result*************")
+            print(result)
             guard self != nil else { return }
             switch result {
             case let .success(data, response):
