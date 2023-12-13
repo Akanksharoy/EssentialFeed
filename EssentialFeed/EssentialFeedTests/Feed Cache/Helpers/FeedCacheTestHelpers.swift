@@ -4,7 +4,6 @@
 //
 //  Created by Animesh on 30/11/23.
 //
-
 import Foundation
 import EssentialFeed
 
@@ -20,17 +19,19 @@ func uniqueImageFeed() -> (models: [FeedImage], local: [LocalFeedImage]) {
 
 extension Date {
     func minusFeedCacheMaxAge() -> Date {
-        return adding(days: -7)
+        return adding(days: -feedCacheMaxAgeInDays)
     }
+    
     private var feedCacheMaxAgeInDays: Int {
         return 7
     }
+    
     private func adding(days: Int) -> Date {
         return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
     }
 }
-extension Date{
-    
+
+extension Date {
     func adding(seconds: TimeInterval) -> Date {
         return self + seconds
     }
