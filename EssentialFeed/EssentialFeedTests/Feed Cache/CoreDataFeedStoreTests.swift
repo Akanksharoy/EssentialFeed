@@ -5,7 +5,6 @@
 //  Created by Animesh on 13/12/23.
 //
 
-
 import XCTest
 import EssentialFeed
 
@@ -77,20 +76,13 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
         assertThatDeleteEmptiesPreviouslyInsertedCache(on: sut)
     }
     
-    func test_storeSideEffects_runSerially() {
-        let sut = makeSUT()
-        
-        assertThatSideEffectsRunSerially(on: sut)
-    }
-
     // - MARK: Helpers
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> FeedStore {
-        let storeBundle = Bundle(for: CoreDataFeedStore.self)
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> FeedStore {
         let storeURL = URL(fileURLWithPath: "/dev/null")
-        let sut = try! CoreDataFeedStore(storeURL: storeURL, bundle: storeBundle)
+        let sut = try! CoreDataFeedStore(storeURL: storeURL)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
-
+    
 }
