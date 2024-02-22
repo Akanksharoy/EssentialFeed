@@ -5,6 +5,6 @@
 //  Created by Animesh on 21/02/24.
 //
 
-struct FeedLoadingViewModel {
+public struct FeedLoadingViewModel {
     let isLoading: Bool
 }

@@ -5,6 +5,7 @@
 //  Created by Animesh on 21/02/24.
 //
 import UIKit
+import EssentialFeed
 
 final class WeakRefVirtualProxy<T: AnyObject> {
     private weak var object: T?
