@@ -2,6 +2,7 @@
 //  Copyright © Essential Developer. All rights reserved.
 //
 
+
 import Foundation
 
 public final class LocalFeedLoader {
@@ -14,8 +15,8 @@ public final class LocalFeedLoader {
     }
 }
 
-extension LocalFeedLoader {
-    public typealias SaveResult = Result<Void, Error>
+extension LocalFeedLoader: FeedCache {
+    public typealias SaveResult = FeedCache.Result
 
     public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         store.deleteCachedFeed { [weak self] deletionResult in

@@ -4,32 +4,9 @@
 //
 //  Created by Animesh on 28/02/24.
 //
-
 import XCTest
 import EssentialFeed
-
-protocol FeedCache {
-    typealias Result = Swift.Result<Void, Error>
-
-    func save(_ feed: [FeedImage], completion: @escaping (Result) -> Void)
-}
-
-final class FeedLoaderCacheDecorator: FeedLoader {
-    private let decoratee: FeedLoader
-    private let cache: FeedCache
-    
-    init(decoratee: FeedLoader, cache: FeedCache) {
-        self.decoratee = decoratee
-        self.cache = cache
-    }
-    
-    func load(completion: @escaping (FeedLoader.Result) -> Void) {
-        decoratee.load { [weak self] result in
-            self?.cache.save((try? result.get()) ?? []) { _ in }
-            completion(result)
-        }
-    }
-}
+import EssentialApp
 
 class FeedLoaderCacheDecoratorTests: XCTestCase, FeedLoaderTestCase {
 
@@ -54,6 +31,15 @@ class FeedLoaderCacheDecoratorTests: XCTestCase, FeedLoaderTestCase {
         sut.load { _ in }
         
         XCTAssertEqual(cache.messages, [.save(feed)], "Expected to cache loaded feed on success")
+    }
+    
+    func test_load_doesNotCacheOnLoaderFailure() {
+        let cache = CacheSpy()
+        let sut = makeSUT(loaderResult: .failure(anyNSError()), cache: cache)
+
+        sut.load { _ in }
+
+        XCTAssertTrue(cache.messages.isEmpty, "Expected not to cache feed on load error")
     }
     
     // MARK: - Helpers
