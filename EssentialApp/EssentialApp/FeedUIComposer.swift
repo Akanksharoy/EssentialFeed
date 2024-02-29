@@ -3,9 +3,10 @@
 //  EssentialFeediOS
 //
 //  Created by Animesh on 22/12/23.
-//
+
 import UIKit
 import EssentialFeed
+import EssentialFeediOS
 
 public final class FeedUIComposer {
     private init() {}

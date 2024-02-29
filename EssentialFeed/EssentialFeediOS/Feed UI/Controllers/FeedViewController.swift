@@ -5,22 +5,24 @@
 //  Created by Animesh on 13/12/23.
 //
 
-
 import UIKit
 import EssentialFeed
 
-protocol FeedViewControllerDelegate {
+public protocol FeedViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
-public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedLoadingView, FeedErrorView {
-    var delegate: FeedViewControllerDelegate?
+public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, EssentialFeed.FeedLoadingView, EssentialFeed.FeedErrorView {
+
+    
     @IBOutlet private(set) public var errorView: ErrorView?
 
-    var tableModel = [FeedImageCellController]() {
+    private var tableModel = [FeedImageCellController]() {
         didSet { tableView.reloadData() }
     }
 
+    public var delegate: FeedViewControllerDelegate?
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,13 +33,18 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         delegate?.didRequestFeedRefresh()
     }
     
-    public func display(_ viewModel: FeedLoadingViewModel) {
+    public func display(_ cellControllers: [FeedImageCellController]) {
+        tableModel = cellControllers
+    }
+
+    public func display(_ viewModel: EssentialFeed.FeedLoadingViewModel) {
         refreshControl?.update(isRefreshing: viewModel.isLoading)
     }
     
-    public func display(_ viewModel: FeedErrorViewModel) {
+    public func display(_ viewModel: EssentialFeed.FeedErrorViewModel) {
         errorView?.message = viewModel.message
     }
+    
 
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableModel.count

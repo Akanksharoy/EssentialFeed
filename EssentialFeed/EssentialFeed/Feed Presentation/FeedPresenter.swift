@@ -3,7 +3,7 @@
 //  EssentialFeed
 //
 //  Created by Animesh on 22/02/24.
-//
+
 import Foundation
 
 public protocol FeedView {
