@@ -1,20 +1,22 @@
 //
-//  FeedLocalizationTests.swift
+//  ImageCommentsLocalizationTests.swift
 //  EssentialFeedTests
 //
-//  Created by Animesh on 22/02/24.
+//  Created by Animesh on 02/03/24.
 //
+
 
 import XCTest
 import EssentialFeed
 
-final class FeedLocalizationTests: XCTestCase {
+class ImageCommentsLocalizationTests: XCTestCase {
     
     func test_localizedStrings_haveKeysAndValuesForAllSupportedLocalizations() {
-        let table = "Feed"
-        let bundle = Bundle(for: FeedPresenter.self)
+        let table = "ImageComments"
+        let bundle = Bundle(for: ImageCommentsPresenter.self)
         
         assertLocalizedKeyAndValuesExist(in: bundle, table)
     }
     
 }
+
