@@ -10,7 +10,9 @@
 //
 
 import XCTest
+import EssentialFeedAPI
 import EssentialFeed
+
 
 class LoadFeedImageDataFromRemoteUseCaseTests: XCTestCase {
 
