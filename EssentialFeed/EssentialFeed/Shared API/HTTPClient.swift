@@ -2,7 +2,7 @@
 //  HTTPClient.swift
 //  EssentialFeed
 //
-//  Created by Akanksha on 12/11/23.
+//  Created by Animesh on 02/03/24.
 //
 
 import Foundation
@@ -19,3 +19,4 @@ public protocol HTTPClient {
     @discardableResult
     func get(from url: URL, completion: @escaping (Result) -> Void) -> HTTPClientTask
 }
+
