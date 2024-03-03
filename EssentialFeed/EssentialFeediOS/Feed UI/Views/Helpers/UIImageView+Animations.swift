@@ -2,7 +2,7 @@
 //  UIImageView+Animations.swift
 //  EssentialFeediOS
 //
-//  Created by Animesh on 21/02/24.
+//  Created by Akanksha on 21/02/24.
 //
 
 import UIKit

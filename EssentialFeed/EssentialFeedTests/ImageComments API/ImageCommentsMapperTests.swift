@@ -2,7 +2,7 @@
 //  ImageCommentsMapperTests.swift
 //  EssentialFeedTests
 //
-//  Created by Animesh on 02/03/24.
+//  Created by Akanksha on 02/03/24.
 //
 
 import XCTest

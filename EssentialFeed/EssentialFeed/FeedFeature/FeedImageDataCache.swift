@@ -2,7 +2,7 @@
 //  FeedImageDataCache.swift
 //  EssentialFeed
 //
-//  Created by Animesh on 12/02/24.
+//  Created by Akanksha on 12/02/24.
 //
 
 import Foundation

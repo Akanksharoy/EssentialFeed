@@ -2,7 +2,7 @@
 //  FeedViewControllerTests.swift
 //  EssentialFeediOSTests
 //
-//  Created by Animesh on 13/12/23.
+//  Created by Akanksha on 13/12/23.
 //
 
 import XCTest

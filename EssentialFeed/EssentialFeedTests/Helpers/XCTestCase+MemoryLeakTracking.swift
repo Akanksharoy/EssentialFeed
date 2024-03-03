@@ -2,7 +2,7 @@
 //  XCTestCase+MemoryLeakTracking.swift
 //  EssentialFeedTests
 //
-//  Created by Animesh on 18/11/23.
+//  Created by Akanksha on 18/11/23.
 //
 import XCTest
 

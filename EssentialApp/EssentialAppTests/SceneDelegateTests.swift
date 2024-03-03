@@ -2,7 +2,7 @@
 //  SceneDelegateTests.swift
 //  EssentialAppTests
 //
-//  Created by Animesh on 29/02/24.
+//  Created by Akanksha on 29/02/24.
 //
 
 import XCTest

@@ -2,7 +2,7 @@
 //  FeedImageViewModel.swift
 //  EssentialFeed
 //
-//  Created by Animesh on 22/02/24.
+//  Created by Akanksha on 22/02/24.
 //
 public struct FeedImageViewModel {
     public let description: String?

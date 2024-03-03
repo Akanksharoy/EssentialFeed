@@ -2,7 +2,7 @@
 //  FeedSnapshotTests.swift
 //  EssentialFeediOSTests
 //
-//  Created by Animesh on 01/03/24.
+//  Created by Akanksha on 01/03/24.
 //
 
 import XCTest

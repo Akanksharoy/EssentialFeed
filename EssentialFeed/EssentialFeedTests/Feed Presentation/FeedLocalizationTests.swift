@@ -2,7 +2,7 @@
 //  FeedLocalizationTests.swift
 //  EssentialFeedTests
 //
-//  Created by Animesh on 22/02/24.
+//  Created by Akanksha on 22/02/24.
 //
 
 import XCTest
